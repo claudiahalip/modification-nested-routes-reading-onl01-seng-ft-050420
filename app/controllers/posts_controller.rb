@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     end
   end
 
+
   def new
     if params[:author_id] && !Author.exists?(params[:author_id])
       redirect_to authors_path, alert: "Author not found."
@@ -39,6 +40,7 @@ class PostsController < ApplicationController
   def edit
     if params[:author_id]
       author = Author.find_by(id: params[:author_id])
+
       if author.nil?
         redirect_to authors_path, alert: "Author not found."
       else
@@ -49,10 +51,13 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
   end
+  
 
   private
 
   def post_params
+
     params.require(:post).permit(:title, :description, :author_id)
+
   end
 end

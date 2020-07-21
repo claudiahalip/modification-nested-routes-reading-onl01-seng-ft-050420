@@ -1,7 +1,11 @@
 <h1><%= @author.name %></h1>
 
+<<<<<<< HEAD
 <%=link_to "New Post", new_author_post_path(@author)%>
 
+=======
+<%= link_to "New Post", new_author_post_path(@author) %>
+>>>>>>> 652d84096d756ea6b4d2f319d471d728ff3638ec
 <p>Posts:</p>
 <% @author.posts.each do |post| %>
   <div><%= post.title %></div>
